@@ -1115,6 +1115,20 @@ static monsterentry mondata[] =
     {TILEP_MONS_DEEP_DWARF}, TILE_CORPSE_DEEP_DWARF
 },
 
+{ // Another dummy monster.
+    MONS_CYNOCEPH, 'g', BROWN, "cynoceph",
+    M_WARM_BLOOD | M_SPEAKS,
+    MR_NO_FLAGS,
+    10, MONS_CYNOCEPH, MONS_CYNOCEPH, MH_NATURAL, 10,
+    { {AT_HIT, AF_PLAIN, 9}, AT_NO_ATK, AT_NO_ATK, AT_NO_ATK },
+    2, 130,
+    2, 9, MST_NO_SPELLS, CE_CLEAN, S_SHOUT,
+    I_HUMAN, HT_LAND, 10, DEFAULT_ENERGY,
+    MONUSE_WEAPONS_ARMOUR, SIZE_MEDIUM, MON_SHAPE_HUMANOID,
+    {TILEP_MONS_GNOLL}, TILE_CORPSE_GNOLL
+},
+
+
 // carnivorous quadrupeds ('h')
 {
     MONS_JACKAL, 'h', BROWN, "jackal",

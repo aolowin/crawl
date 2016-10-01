@@ -4155,6 +4155,14 @@ int get_real_mp(bool include_items)
             enp += 15;
     }
 
+    // After all bonuses cynocephs get reduced by 6.5x but always at least 1
+    if (you.species == SP_CYNOCEPH)
+    {
+        enp *= 10;
+        enp /= 65;
+        enp = max(enp, 1);
+    }
+
     if (include_items && you.wearing_ego(EQ_WEAPON, SPWPN_ANTIMAGIC))
         enp /= 3;
 

@@ -65,6 +65,25 @@ static const map<species_type, species_def> species_data =
       SK_BOWS, SK_CROSSBOWS, SK_SLINGS },
 } },
 
+{ SP_CYNOCEPH, {
+    "Cy",
+    "Cynoceph", nullptr, nullptr,
+    SPF_NONE,
+    0, 0, 0,
+    15, 5,
+    MONS_CYNOCEPH,
+    HT_LAND, US_ALIVE, SIZE_MEDIUM,
+    8, 9, 8, // 25
+    { STAT_STR, STAT_INT, STAT_DEX }, 4,
+    { { MUT_FANGS, 2, 1 } },
+    {},
+    {},
+    { JOB_WARPER, JOB_WIZARD, JOB_CONJURER, JOB_NECROMANCER,
+      JOB_FIRE_ELEMENTALIST,  JOB_AIR_ELEMENTALIST, JOB_VENOM_MAGE },
+    { SK_MACES_FLAILS, SK_AXES, SK_POLEARMS, SK_LONG_BLADES, SK_STAVES,
+      SK_BOWS, SK_CROSSBOWS, SK_SLINGS },
+} },
+
 { SP_DEEP_DWARF, {
     "DD",
     "Deep Dwarf", "Dwarven", "Dwarf",

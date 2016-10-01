@@ -1484,6 +1484,46 @@ static const species_skill_aptitude species_skill_aptitudes[] =
     APT(SP_VINE_STALKER,    SK_POISON_MAGIC,    0),
     APT(SP_VINE_STALKER,    SK_INVOCATIONS,     0),
     APT(SP_VINE_STALKER,    SK_EVOCATIONS,     -1),
+
+    // SP_CYNOCEPH
+    APT(SP_CYNOCEPH,        SK_FIGHTING,        0),
+    APT(SP_CYNOCEPH,        SK_SHORT_BLADES,    0),
+    APT(SP_CYNOCEPH,        SK_LONG_BLADES,     0),
+    APT(SP_CYNOCEPH,        SK_AXES,            0),
+    APT(SP_CYNOCEPH,        SK_MACES_FLAILS,    0),
+    APT(SP_CYNOCEPH,        SK_POLEARMS,        0),
+    APT(SP_CYNOCEPH,        SK_STAVES,          0),
+    APT(SP_CYNOCEPH,        SK_SLINGS,          0),
+    APT(SP_CYNOCEPH,        SK_BOWS,            0),
+    APT(SP_CYNOCEPH,        SK_CROSSBOWS,       0),
+    APT(SP_CYNOCEPH,        SK_THROWING,        0),
+    APT(SP_CYNOCEPH,        SK_ARMOUR,          0),
+    APT(SP_CYNOCEPH,        SK_DODGING,         0),
+    APT(SP_CYNOCEPH,        SK_STEALTH,         1),
+#if TAG_MAJOR_VERSION == 34
+    APT(SP_CYNOCEPH,        SK_STABBING,      UNUSABLE_SKILL),
+#endif
+    APT(SP_CYNOCEPH,        SK_SHIELDS,         0),
+#if TAG_MAJOR_VERSION == 34
+    APT(SP_CYNOCEPH,        SK_TRAPS,         UNUSABLE_SKILL),
+#endif
+    APT(SP_CYNOCEPH,        SK_UNARMED_COMBAT,  0),
+    APT(SP_CYNOCEPH,        SK_SPELLCASTING,   -2),
+    APT(SP_CYNOCEPH,        SK_CONJURATIONS,    1),
+    APT(SP_CYNOCEPH,        SK_HEXES,           1),
+    APT(SP_CYNOCEPH,        SK_CHARMS,          0),
+    APT(SP_CYNOCEPH,        SK_SUMMONINGS,     -3),
+    APT(SP_CYNOCEPH,        SK_NECROMANCY,      0),
+    APT(SP_CYNOCEPH,        SK_TRANSLOCATIONS,  2),
+    APT(SP_CYNOCEPH,        SK_TRANSMUTATIONS,  0),
+    APT(SP_CYNOCEPH,        SK_FIRE_MAGIC,      0),
+    APT(SP_CYNOCEPH,        SK_ICE_MAGIC,       0),
+    APT(SP_CYNOCEPH,        SK_AIR_MAGIC,       0),
+    APT(SP_CYNOCEPH,        SK_EARTH_MAGIC,     0),
+    APT(SP_CYNOCEPH,        SK_POISON_MAGIC,    0),
+    APT(SP_CYNOCEPH,        SK_INVOCATIONS,     1),
+    APT(SP_CYNOCEPH,        SK_EVOCATIONS,     -1),
+
 };
 
 #endif

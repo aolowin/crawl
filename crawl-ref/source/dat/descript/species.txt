@@ -4,6 +4,11 @@ Centaur
 Swift, strong and bulky, Centaurs are particularly skilled with ranged
 weaponry.
 %%%%
+Cynoceph
+
+Cynocephs are jackal-headed humanoids. They have a limited magic reserve but it
+is quickly restored.
+%%%%
 Deep Dwarf
 
 Deep Dwarves live underground and cannot regenerate health naturally, but they

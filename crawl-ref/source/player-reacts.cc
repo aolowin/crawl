@@ -972,7 +972,10 @@ static void _regenerate_hp_and_mp(int delay)
 
     if (you.magic_points < you.max_magic_points)
     {
-        const int base_val = 7 + you.max_magic_points / 2;
+        int base_val = 7 + you.max_magic_points / 2;
+        if (you.species == SP_CYNOCEPH)
+            base_val *= BASELINE_DELAY / 2;
+
         int mp_regen_countup = div_rand_round(base_val * delay, BASELINE_DELAY);
 
         if (player_mutation_level(MUT_MANA_REGENERATION))
