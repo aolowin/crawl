@@ -629,6 +629,7 @@ static void _hydra_devour(monster &victim)
 
     // will eating this actually fill the player up?
     const bool filling = !have_passive(passive_t::goldify_corpses)
+                          && !have_passive(passive_t::corpse_feed)
                           && you.get_mutation_level(MUT_HERBIVOROUS, false) == 0
                           && you.hunger_state <= max_hunger
                           && you.hunger_state < HS_ENGORGED;

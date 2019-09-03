@@ -253,6 +253,12 @@ enum class passive_t
     wu_jian_lunge,
     wu_jian_whirlwind,
     wu_jian_wall_jump,
+
+    /// Corpses feed you and are consumed
+    corpse_feed,
+
+    /// Non-branded weapons become flaming
+    ignite_weapon,
 };
 
 enum ru_interference
@@ -300,3 +306,6 @@ bool wu_jian_post_move_effects(bool did_wall_jump,
                                const coord_def& initial_position);
 void wu_jian_end_of_turn_effects();
 void end_heavenly_storm();
+
+void ignejed_ignite_weapon(item_def& weapon);
+void ignejed_quench_weapon(item_def& weapon);

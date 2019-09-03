@@ -542,8 +542,16 @@ item_def* place_monster_corpse(const monster& mons, bool silent, bool force)
                    && mons_gives_xp(mons, you)
                    && !force;
 
+    // Under Ignejed, monsters turn into ash on death.
+    // Temporary Tukima's Dance weapons stay as weapons (no free gold),
+    // permanent dancing weapons turn to gold like other monsters.
+    bool ashify = have_passive(passive_t::corpse_feed)
+                   && mons_gives_xp(mons, you)
+                   && !force;
+
     const bool no_coinflip = mons.props.exists("always_corpse")
                              || force
+                             || ashify
                              || goldify;
 
     // 50/50 chance of getting a corpse, usually.
@@ -581,6 +589,11 @@ item_def* place_monster_corpse(const monster& mons, bool silent, bool force)
             destroy_item(corpse, true);
             return nullptr;
         }
+    }
+    else if (ashify)
+    {
+        lessen_hunger(CHUNK_BASE_NUTRITION/2, false);
+        return nullptr;
     }
     else if (!_fill_out_corpse(mons, corpse))
         return nullptr;

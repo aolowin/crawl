@@ -622,6 +622,10 @@ static void _equip_weapon_effect(item_def& item, bool showMsgs, bool unmeld)
         }
 
         _wield_cursed(item, known_cursed || known_recurser, unmeld);
+
+        // Lastly see if there are any divine effects
+        if (have_passive(passive_t::ignite_weapon))
+            ignejed_ignite_weapon(item);
         break;
     }
     default:
@@ -634,6 +638,10 @@ static void _unequip_weapon_effect(item_def& real_item, bool showMsgs,
 {
     you.wield_change = true;
     you.m_quiver.on_weapon_changed();
+
+    // First see if there are any divine effects
+    if (have_passive(passive_t::ignite_weapon))
+        ignejed_quench_weapon(real_item);
 
     // Fragile artefacts may be destroyed, so make a copy
     item_def item = real_item;

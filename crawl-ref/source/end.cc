@@ -395,6 +395,15 @@ NORETURN void end_game(scorefile_entry &se)
             break;
         }
 #endif
+        case GOD_IGNEJED:
+            if (death_type != KILLED_BY_DISINT
+                && death_type != KILLED_BY_LAVA)
+            {
+                mprf(MSGCH_GOD, "Your body is reduced to ash.");
+            }
+            simple_god_message(" appreciates the contribution of your "
+                               "essence.");
+            break;
 
         default:
             if (will_have_passive(passive_t::goldify_corpses)

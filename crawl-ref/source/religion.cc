@@ -390,6 +390,14 @@ const vector<god_power> god_powers[NUM_GODS] =
            "summon a storm of heavenly clouds to empower your attacks",
            "summon a storm of heavenly clouds" },
     },
+    // Ignejed
+    { { 0, "gain nutrition from killing" },
+      { 2, "Ignejed will ignite unbranded weapons you wield",
+           "Ignejed will no longer ignite unbranded weapons"},
+//      { 3, ABIL_RING_OF_FIRE,
+//           "surround yourself with a ring of fire" },
+      { 5, "gain health and gain magical power from killing"},
+    },
 };
 
 vector<god_power> get_god_powers(god_type god)
@@ -853,6 +861,14 @@ static void _inc_penance(god_type god, int val)
             if (you.attribute[ATTR_DIVINE_ENERGY])
                 you.attribute[ATTR_DIVINE_ENERGY] = 0;
 #endif
+        }
+        else if (god == GOD_IGNEJED)
+        {
+            if (you.attribute[ATTR_DIVINE_FIRE_BRAND])
+            {
+                item_def& weapon = *you.slot_item(EQ_WEAPON, true);
+                ignejed_quench_weapon(weapon);
+            }
         }
 
         if (you_worship(god))
@@ -2129,7 +2145,8 @@ string god_name(god_type which_god, bool long_name)
 #endif
     case GOD_USKAYAW:       return "Uskayaw";
     case GOD_HEPLIAKLQANA:  return "Hepliaklqana";
-    case GOD_WU_JIAN:     return "Wu Jian";
+    case GOD_WU_JIAN:       return "Wu Jian";
+    case GOD_IGNEJED:       return "Ignejed";
     case GOD_JIYVA: // This is handled at the beginning of the function
     case GOD_ECUMENICAL:    return "an unknown god";
     case NUM_GODS:          return "Buggy";
@@ -2413,6 +2430,11 @@ static void _gain_piety_point()
         }
         if (rank >= rank_for_passive(passive_t::identify_items))
             auto_id_inventory();
+        if (rank == rank_for_passive(passive_t::ignite_weapon) && you.weapon())
+        {
+            item_def& weapon = *you.weapon();
+            ignejed_ignite_weapon(weapon);
+        }
 
         // TODO: add one-time ability check in have_passive
         if (have_passive(passive_t::unlock_slime_vaults) && can_do_capstone_ability(you.religion))
@@ -2597,6 +2619,16 @@ void lose_piety(int pgn)
         msg += ".";
         simple_god_message(msg.c_str());
         notify_stat_change();
+    }
+
+    if (will_have_passive(passive_t::ignite_weapon)
+        && !have_passive(passive_t::ignite_weapon))
+    {
+        if (you.slot_item(EQ_WEAPON, true))
+        {
+            item_def& weapon = *you.slot_item(EQ_WEAPON, true);
+            ignejed_quench_weapon(weapon);
+        }
     }
 
     if (you_worship(GOD_QAZLAL)
@@ -4091,6 +4123,7 @@ void handle_god_time(int /*time_delta*/)
 #endif
         case GOD_JIYVA:
         case GOD_WU_JIAN:
+        case GOD_IGNEJED:
         case GOD_SIF_MUNA:
             if (one_chance_in(17))
                 lose_piety(1);

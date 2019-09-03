@@ -424,6 +424,14 @@ static const vector<god_passive> god_passives[] =
         { 1, passive_t::wu_jian_whirlwind, "lightly attack and pin monsters in place by moving around them." },
         { 2, passive_t::wu_jian_wall_jump, "perform airborne attacks by moving against a solid obstacle." },
     },
+
+    // Ignejed
+    {
+        { -1, passive_t::corpse_feed, "GOD NOW consumes all corpses and feeds you" },
+        {  2, passive_t::ignite_weapon, "GOD NOW ignites any unbranded weapon you wield" },
+        {  5, passive_t::mp_on_kill, "gain magical power from killing" },
+        {  5, passive_t::restore_hp, "gain health from killing" },
+    },
 };
 COMPILE_CHECK(ARRAYSZ(god_passives) == NUM_GODS);
 
@@ -1947,4 +1955,31 @@ void uskayaw_bonds_audience()
     }
     else // Reset the timer because we didn't actually execute.
         you.props[USKAYAW_BOND_TIMER] = 0;
+}
+
+void ignejed_ignite_weapon(item_def& weapon)
+{
+    if (get_weapon_brand(weapon) != SPWPN_NORMAL || is_artefact(weapon))
+        return;
+
+    you.attribute[ATTR_DIVINE_FIRE_BRAND] = 1;
+    const string wpn_name = weapon.name(DESC_YOUR);
+    set_item_ego_type(weapon, OBJ_WEAPONS, SPWPN_FLAMING);
+    mprf(MSGCH_GOD, "%s bursts into flame!", wpn_name.c_str());
+    you.wield_change = true;
+}
+
+void ignejed_quench_weapon(item_def& weapon)
+{
+    if (!you.attribute[ATTR_DIVINE_FIRE_BRAND])
+        return;
+
+    if (get_weapon_brand(weapon) != SPWPN_FLAMING || is_artefact(weapon))
+        return;
+
+    you.attribute[ATTR_DIVINE_FIRE_BRAND] = 0;
+    set_item_ego_type(weapon, OBJ_WEAPONS, SPWPN_NORMAL);
+    const string wpn_name = weapon.name(DESC_YOUR);
+    mprf(MSGCH_GOD, "%s stops flaming.", wpn_name.c_str());
+    you.wield_change = true;
 }

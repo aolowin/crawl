@@ -198,6 +198,7 @@ enum dungeon_feature_type
     DNGN_ALTAR_USKAYAW,
     DNGN_ALTAR_HEPLIAKLQANA,
     DNGN_ALTAR_WU_JIAN,
+    DNGN_ALTAR_IGNEJED,
     DNGN_ALTAR_ECUMENICAL,
 #endif
 
@@ -284,6 +285,7 @@ enum dungeon_feature_type
     DNGN_OPEN_CLEAR_DOOR,
     DNGN_RUNED_CLEAR_DOOR,
     DNGN_SEALED_CLEAR_DOOR,
+    DNGN_ALTAR_IGNEJED,
 #endif
 
     NUM_FEATURES

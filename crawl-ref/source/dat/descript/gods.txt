@@ -68,6 +68,13 @@ ancestor into the world; as they explore and form new experiences, they will
 find themselves able to shape and control their ancestor's memory, eventually
 bringing them into the ranks of the mythical heroes.
 %%%%
+Ignejed
+
+Ignejed the All Consuming []. Worshipers who help feed the furnace will find
+that Ignejed shares the collected essence to keep the god's followers in good
+health. They may also tap the roaring flames to ignite their weapons and
+eventually encircle themselves in fire.
+%%%%
 Wu Jian
 
 The Wu Jian Council is a congregation of martial monks, ascended to divinity
@@ -297,6 +304,14 @@ Hepliaklqana's service allows worshippers to restore and strengthen their
 ancestor, to swap them with other creatures, and to choose how to remember
 their life's talents.
 %%%%
+Ignejed powers
+
+Ignejed consumes all monsters on their death, leaving not a trace but ash. A
+part of the essence returns to feed the worshipper. Those favored by Ignejed
+will also see the essence renew their health and magic. Followers will find
+that the fires of the god attach to any unbranded weapon that is wielded and
+will eventually be able to encircle themselves in flame.
+%%%%
 Jiyva powers
 
 Jiyva's followers can request jellies, which will consume nearby items and
@@ -519,6 +534,13 @@ denied to the unfortunate apostate, until Hepliaklqana decides they have
 been punished enough. The life essence sacrificed to manifest an ancestor will
 not be returned until Hepliaklqana is mollified, and this will not be quick:
 unlike some, Hepliaklqana has a long memory.
+%%%%
+Ignejed wrath
+
+While Ignejed's attention is fixed on the offender all kills will be turned to
+ash, feeding the god alone. In addition, Ignejed may choose to consume some of
+the sinner's essence, depleting their health or magic or causing them to faint
+from hunger.
 %%%%
 Gozag wrath
 
